@@ -69,10 +69,10 @@ This project is a simple Student Management System built using Spring Boot and H
 #### Clone the Repository:
 
 ```bash
-  git clone https://github.com/your-username/student-management-system.git
+  git clone [https://github.com/AnushkaHere/HibernateStudentCrud]
 ```
 ```bash
-  cd student-management-system
+  cd HibernateStudentCrud
 ```
 
 #### Configure the Database:
@@ -80,9 +80,9 @@ This project is a simple Student Management System built using Spring Boot and H
 Update the application.properties file with your database configuration.
 
 ```bash
-  spring.datasource.url=jdbc:mysql://localhost:3306/studentdb
+  spring.datasource.url=jdbc:mysql://localhost:3306/student_db
   spring.datasource.username=root
-  spring.datasource.password=yourpassword
+  spring.datasource.password=root
   spring.jpa.hibernate.ddl-auto=update
 ```
 
