@@ -69,7 +69,7 @@ This project is a simple Student Management System built using Spring Boot and H
 #### Clone the Repository:
 
 ```bash
-  git clone [https://github.com/AnushkaHere/HibernateStudentCrud]
+  git clone https://github.com/AnushkaHere/HibernateStudentCrud
 ```
 ```bash
   cd HibernateStudentCrud
