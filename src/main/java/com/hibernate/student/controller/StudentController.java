@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api")
 public class StudentController {
 
     @Autowired
@@ -15,8 +16,8 @@ public class StudentController {
 
     // CRUD - create
     @PostMapping("/students")
-    public String addStudent(@RequestBody Student stud) {
-        studentDao.save(stud);
+    public String addStudent(@RequestBody Student student) {
+        studentDao.save(student);
         return "Student saved successfully";
     }
 
@@ -33,11 +34,20 @@ public class StudentController {
     }
 
     // CRUD - update
-    @PutMapping("/students")
-    public String updateStudent(@RequestBody Student stud) {
-        studentDao.update(stud);
-        return "Student updated successfully";
+    @PutMapping("/students/{studentId}")
+    public String updateStudent(@PathVariable int studentId, @RequestBody Student student) {
+        Student existingStudent = studentDao.findById(studentId);
+        if(existingStudent != null){
+            existingStudent.setEmail(student.getEmail());
+            existingStudent.setFirstName(student.getFirstName());
+            existingStudent.setLastName(student.getLastName());
+            studentDao.update(existingStudent);
+            return "Student updated successfully";
+        } else {
+            return "Student not found";
+        }
     }
+
 
     // CRUD - delete
     @DeleteMapping("/students/{studentId}")
